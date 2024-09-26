@@ -15,6 +15,7 @@ buttons.addEventListener("click", function(e) {
     if(humanScore == 5 || computerScore == 5) {
         gameEnd();
     } else {
+        if(e.target.id !== "buttons")
         playRound(e.target.id);
     }
      
@@ -38,11 +39,18 @@ function playRound(humanChoice) {
         console.log("it's a tie! " + humanChoice + " and " + computerChoice);
     }
     score.textContent = humanScore + " : " + computerScore;
-    
+    if(humanScore == 5 || computerScore == 5) {
+        gameEnd();
+    }
 }
 
 function gameEnd(){
-    console.log("ende")
+    if(humanScore > computerScore) {
+        choices.textContent = "You won! Congratulations";
+    } else {
+        choices.textContent = "You lost! Against a computer...."
+    }
+    console.log("end")
 }
 
 
