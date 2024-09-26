@@ -2,26 +2,36 @@
 let humanScore = 0;
 let computerScore = 0;
 
-const buttons = document.querySelector("#buttons");
 const score = document.querySelector("#score");
 const choices = document.querySelector("#choices");
+const rockBtn = document.querySelector("#rock");
+const paperBtn = document.querySelector("#paper");
+const scissorsBtn = document.querySelector("#scissors");
 choices.textContent = "Click one of the buttons to start!";
 score.textContent = humanScore + " : " + computerScore;
 
 
 
-buttons.addEventListener("click", function(e) {
-    //console.log(e.target.id);
+rockBtn.addEventListener("click", function(e) {
     if(humanScore == 5 || computerScore == 5) {
-        gameEnd();
     } else {
-        if(e.target.id !== "buttons")
-        playRound(e.target.id);
-    }
-     
-    
-    
-})
+       playRound("rock");
+}})
+
+paperBtn.addEventListener("click", function(e) {
+    if(humanScore == 5 || computerScore == 5) {
+    } else {
+       playRound("paper");
+}})
+
+scissorsBtn.addEventListener("click", function(e) {
+    if(humanScore == 5 || computerScore == 5) {
+    } else {
+       playRound("scissors");
+}})
+
+
+
 
 function playRound(humanChoice) {
     const computerChoice = getComputerChoice();
@@ -65,7 +75,7 @@ function getComputerChoice() {
         return "scissors"
     }
 }
-/*
+/* Old version without UI :)
 function getHumanChoice() {
     let humanChoice = prompt("Input rock, paper or scissors")
     if (humanChoice.toLowerCase() === "rock") {
