@@ -1,16 +1,19 @@
-
 let humanScore = 0;
 let computerScore = 0;
 
 const score = document.querySelector("#score");
 const choices = document.querySelector("#choices");
+const restart = document.querySelector("#restart-section");
 const rockBtn = document.querySelector("#rock");
 const paperBtn = document.querySelector("#paper");
 const scissorsBtn = document.querySelector("#scissors");
+const restartBtn = document.createElement("button");
+restartBtn.id = "restart-button"
+restartBtn.textContent = "Restart";
 choices.textContent = "Click one of the buttons to start!";
 score.textContent = humanScore + " : " + computerScore;
 
-
+startGame();
 
 rockBtn.addEventListener("click", function(e) {
     if(humanScore == 5 || computerScore == 5) {
@@ -29,6 +32,12 @@ scissorsBtn.addEventListener("click", function(e) {
     } else {
        playRound("scissors");
 }})
+
+restartBtn.addEventListener("click", function(e) {
+    restart.removeChild(restartBtn);
+    startGame();
+    
+})
 
 
 
@@ -60,6 +69,7 @@ function gameEnd(){
     } else {
         choices.textContent = "You lost! Against a computer...."
     }
+    restart.appendChild(restartBtn);
     console.log("end")
 }
 
@@ -74,6 +84,13 @@ function getComputerChoice() {
     } else {
         return "scissors"
     }
+}
+
+function startGame() {
+    humanScore = 0;
+    computerScore = 0;
+    choices.textContent = "Click one of the buttons to start!";
+    score.textContent = humanScore + " : " + computerScore;
 }
 /* Old version without UI :)
 function getHumanChoice() {

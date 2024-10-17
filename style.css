@@ -1,5 +1,5 @@
 :root{
-    --moinsen-color: #ffe025;
+    --font-color: #ffe025;
 }
 
 *,
@@ -18,6 +18,12 @@ body {
 
 button{
     cursor: pointer;
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
+    font-variation-settings: "wdth" 100;
 }
 
 #header{
@@ -33,16 +39,6 @@ button{
     color: var(--moinsen-color);
 }
 
-#score {
-    font-size: 50px;
-    margin: 20px;
-}
-#choices {
-    font-size: 50px;
-    margin: 20px;
-}
-
-
 #game {
     font-family: "Fredoka", sans-serif;
     font-optical-sizing: auto;
@@ -57,13 +53,22 @@ button{
     
 }
 
+#score {
+    font-size: 50px;
+    margin: 20px;
+}
+
+#choices {
+    font-size: 50px;
+    margin: 20px;
+}
+
 #buttons {
     display: flex;
     align-items: center;    
-    justify-content: center;
-    gap: 30px;
+    justify-content: space-evenly;
     margin-top: 50px;
-    
+    gap: 30px;
 }
 
 .btn:hover {
@@ -79,7 +84,16 @@ button{
     
 }
 
-.rocky{
+#restart-button {
+    height: 70px;
+    width: 150px;
+    background-color: rgb(43, 17, 36);
+    color: var(--font-color);
+    border-radius: 10px;
+    border: none;
+    margin: 30px 0px 0px 30px;
+}
+.btn-choices{
     font-size: 100px;
     margin-top: 0px;
 }
